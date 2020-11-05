@@ -1,3 +1,5 @@
+package repository;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import ru.netology.domain.Book;
@@ -34,10 +36,7 @@ public class ProductRepositoryTest {
         assertArrayEquals(expected, actual);
     }
     @Test
-    void shouldShowIfIdNoExists () {
-        int idToRemove = 5;
-        repository.removeById(idToRemove);
-        assertThrows (NotFoundException.class, ()-> repository.removeById(5));
-
+    void shouldShowIfIdNotExist () {
+        assertThrows(NotFoundException.class, ()-> repository.removeById(5));
     }
 }
